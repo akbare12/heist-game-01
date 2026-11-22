@@ -80,21 +80,21 @@ export function drawGuard(ctx, g, playerInSmoke) {
     ? 'rgba(255, 70, 70, 0.30)'
     : 'rgba(255, 210, 90, 0.20)';
   drawCone(ctx, g.x, g.y, g.facing, GUARD_RANGE, GUARD_HALF_ANGLE, color);
-  // Body: dark uniform, gold trim, facing tick.
+  // Body: a chevron pointing where the guard looks — a different SHAPE
+  // from the thief's disc, so the two read apart even at small scale.
   ctx.save();
   ctx.translate(g.x, g.y);
+  ctx.rotate(g.facing);
   ctx.beginPath();
-  ctx.arc(0, 0, 12, 0, Math.PI * 2);
+  ctx.moveTo(16, 0);
+  ctx.lineTo(-10, -11);
+  ctx.lineTo(-4, 0);
+  ctx.lineTo(-10, 11);
+  ctx.closePath();
   ctx.fillStyle = '#1c2733';
   ctx.fill();
   ctx.lineWidth = 2;
   ctx.strokeStyle = g.spotted ? '#ff4646' : '#d8a93b';
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(0, 0);
-  ctx.lineTo(Math.cos(g.facing) * 16, Math.sin(g.facing) * 16);
-  ctx.lineWidth = 3;
-  ctx.strokeStyle = '#e8eef5';
   ctx.stroke();
   ctx.restore();
 }

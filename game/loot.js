@@ -49,10 +49,10 @@ export function drawLoot(ctx, item, time) {
   const bob = Math.sin(time * 2 + item.x) * 2.5; // gentle idle bob
   ctx.save();
   ctx.translate(item.x, item.y + bob);
-  // Glow ring so loot reads at a glance.
+  // Gold glow ring so loot reads at a glance, even at small scale.
   ctx.beginPath();
-  ctx.arc(0, 0, item.radius + 6, 0, Math.PI * 2);
-  ctx.fillStyle = item.color + '22';
+  ctx.arc(0, 0, item.radius + 7, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(245, 197, 66, 0.30)';
   ctx.fill();
   // The loot itself: coin circle, gold bar, gem diamond, relic star.
   ctx.fillStyle = item.color;

@@ -33,7 +33,7 @@ export function drawTopBar(ctx, state) {
   ctx.fillText(level.name, 16, 24);
   ctx.font = '12px monospace';
   ctx.fillStyle = '#8fa3b5';
-  ctx.fillText(level.briefing, 16, 46);
+  ctx.fillText(level.briefing, 16, 50);
 
   // Alarm meter.
   ctx.font = 'bold 12px monospace';
@@ -142,8 +142,7 @@ export function drawLegend(ctx, state) {
     `[1] Smoke ${TOOL_COSTS.smoke}c — hide 6s`,
     `[2] EMP ${TOOL_COSTS.emp}c — cams off 8s`,
     `[3] Pick ${TOOL_COSTS.pick}c — open relic`,
-    `Smoke active: ${tools.smokeLeft > 0 ? tools.smokeLeft.toFixed(0) + 's' : '—'}`,
-    `EMP active: ${tools.empLeft > 0 ? tools.empLeft.toFixed(0) + 's' : '—'}`,
+    `Smoke ${tools.smokeLeft > 0 ? tools.smokeLeft.toFixed(0) + 's' : '—'} · EMP ${tools.empLeft > 0 ? tools.empLeft.toFixed(0) + 's' : '—'}`,
   ];
   for (const line of toolLines) {
     ctx.fillText(line, 856, y);
@@ -158,11 +157,9 @@ export function drawLegend(ctx, state) {
   ctx.fillStyle = '#c7d3df';
   const controlLines = [
     'WASD / arrows — move',
-    'Shift — sneak (slow,',
-    '  half spotted)',
+    'Shift — sneak, half seen',
     'E — grab loot / pick lock',
     '1 / 2 / 3 — use a tool',
-    'Click — buttons + tools',
   ];
   for (const line of controlLines) {
     ctx.fillText(line, 856, y);
@@ -177,8 +174,7 @@ export function drawLegend(ctx, state) {
   ctx.fillStyle = '#c7d3df';
   const winLines = [
     `Room ${level.id} of 4 — quota ${level.quota}.`,
-    'Reach the green exit',
-    'with the quota to move on.',
+    'Reach the exit with quota.',
     'Clear room 4 to escape.',
   ];
   for (const line of winLines) {

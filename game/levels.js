@@ -7,10 +7,10 @@ export const ROOM = { x: 16, y: 72, w: 808, h: 592 };
 
 // Loot kinds: value in loot points, locked ones need a lockpick (or a hold).
 export const LOOT_KINDS = {
-  coin: { value: 5, color: '#e8c85a', label: 'COIN 5', radius: 9 },
-  gold: { value: 25, color: '#f5b301', label: 'GOLD 25', radius: 11 },
-  diamond: { value: 50, color: '#7fe7ff', label: 'GEM 50', radius: 11 },
-  artifact: { value: 100, color: '#ff5d8f', label: 'RELIC 100', radius: 13, locked: true },
+  coin: { value: 5, color: '#e8c85a', label: 'COIN 5', radius: 12 },
+  gold: { value: 25, color: '#f5b301', label: 'GOLD 25', radius: 14 },
+  diamond: { value: 50, color: '#7fe7ff', label: 'GEM 50', radius: 15 },
+  artifact: { value: 100, color: '#ff5d8f', label: 'RELIC 100', radius: 17, locked: true },
 };
 
 function loot(x, y, kind) {
@@ -29,8 +29,16 @@ export const LEVELS = [
   {
     id: 1,
     name: 'THE VELVET LOBBY',
-    briefing: 'Slip past the desk patrol. Grab 60 loot, then the north-east door.',
+    briefing: 'Slip past the desk. Grab 60 loot, exit NE.',
     quota: 60,
+    floor: '#151a12',
+    grid: '#20261a',
+    props: [
+      { kind: 'rect', x: 520, y: 150, w: 40, h: 490, color: 'rgba(107, 85, 24, 0.30)' }, // gold carpet runner
+      { kind: 'circle', x: 700, y: 600, r: 10, color: '#3f7a4e' }, // potted plant
+      { kind: 'label', x: 390, y: 320, text: 'RECEPTION', color: '#f5c542' },
+      { kind: 'label', x: 120, y: 160, text: 'LOUNGE', color: '#8fa3b5' },
+    ],
     start: { x: 60, y: 600 },
     exit: { x: 764, y: 80, w: 52, h: 44, label: 'EXIT' },
     walls: [
@@ -58,8 +66,17 @@ export const LEVELS = [
   {
     id: 2,
     name: 'THE SILENT GALLERY',
-    briefing: 'Paintings watch you back. 120 loot, then the north-west door.',
+    briefing: 'Paintings watch you. 120 loot, exit NW.',
     quota: 120,
+    floor: '#171423',
+    grid: '#221d33',
+    props: [
+      { kind: 'frame', x: 200, y: 76, w: 64, h: 30, fill: '#7a1f16' }, // red painting
+      { kind: 'frame', x: 300, y: 76, w: 64, h: 30, fill: '#2e75b6' }, // blue painting
+      { kind: 'frame', x: 560, y: 76, w: 64, h: 30, fill: '#f5b301' }, // gold painting
+      { kind: 'label', x: 440, y: 414, text: 'BENCH', color: '#8fa3b5' },
+      { kind: 'label', x: 725, y: 145, text: 'SCULPTURE', color: '#8fa3b5' },
+    ],
     start: { x: 780, y: 620 },
     exit: { x: 16, y: 80, w: 52, h: 44, label: 'EXIT' },
     walls: [
@@ -88,8 +105,17 @@ export const LEVELS = [
   {
     id: 3,
     name: 'THE GOLD VAULT',
-    briefing: 'Two relics sleep behind steel. 200 loot, then out the north-east door.',
+    briefing: 'Two relics sleep in steel. 200 loot, exit NE.',
     quota: 200,
+    floor: '#121a14',
+    grid: '#1a261c',
+    props: [
+      { kind: 'rect', x: 632, y: 260, w: 18, h: 9, color: '#f5b301' }, // bullion bars
+      { kind: 'rect', x: 656, y: 260, w: 18, h: 9, color: '#f5b301' },
+      { kind: 'rect', x: 680, y: 260, w: 18, h: 9, color: '#f5b301' },
+      { kind: 'label', x: 620, y: 190, text: 'VAULT', color: '#f5c542' },
+      { kind: 'label', x: 220, y: 315, text: 'CRATES', color: '#8fa3b5' },
+    ],
     start: { x: 60, y: 600 },
     exit: { x: 764, y: 80, w: 52, h: 44, label: 'EXIT' },
     walls: [
@@ -126,8 +152,19 @@ export const LEVELS = [
   {
     id: 4,
     name: 'THE ROOFTOP ESCAPE',
-    briefing: 'Last room. 260 loot, then the helipad. The chopper leaves at dawn.',
-    quota: 260,
+    briefing: 'Last room. 200 loot, then the helipad.',
+    quota: 200, // was 260: total loot in this room is 230, so 260 was unwinnable
+    floor: '#131a24',
+    grid: '#1b2636',
+    props: [
+      { kind: 'rect', x: 16, y: 72, w: 664, h: 36, color: '#22344a' }, // sky strip
+      { kind: 'rect', x: 100, y: 84, w: 40, h: 24, color: '#0d1622' }, // skyline
+      { kind: 'rect', x: 180, y: 78, w: 30, h: 30, color: '#0d1622' },
+      { kind: 'rect', x: 300, y: 88, w: 50, h: 20, color: '#0d1622' },
+      { kind: 'rect', x: 560, y: 80, w: 36, h: 28, color: '#0d1622' },
+      { kind: 'heli', x: 755, y: 200 }, // parked helicopter silhouette
+      { kind: 'label', x: 755, y: 228, text: 'CHOPPER', color: '#8fa3b5' },
+    ],
     start: { x: 60, y: 620 },
     exit: { x: 700, y: 80, w: 110, h: 90, label: 'HELIPAD' },
     walls: [

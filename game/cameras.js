@@ -51,21 +51,18 @@ export function drawCamera(ctx, cam, playerInSmoke) {
   if (!disabled) {
     drawCone(ctx, cam.x, cam.y, cam.facing, CAMERA_RANGE, CAMERA_HALF_ANGLE, color);
   }
-  // Mount + lens.
+  // Mount: a small square + red lens — a different SHAPE from the thief's
+  // disc and the guard's chevron, so all three read apart at small scale.
   ctx.save();
   ctx.translate(cam.x, cam.y);
-  ctx.beginPath();
-  ctx.arc(0, 0, 8, 0, Math.PI * 2);
   ctx.fillStyle = disabled ? '#3a4550' : '#232d38';
-  ctx.fill();
+  ctx.fillRect(-8, -8, 16, 16);
   ctx.lineWidth = 2;
   ctx.strokeStyle = disabled ? '#5a6a78' : '#ff5d5d';
-  ctx.stroke();
+  ctx.strokeRect(-8, -8, 16, 16);
   ctx.beginPath();
-  ctx.moveTo(0, 0);
-  ctx.lineTo(Math.cos(cam.facing) * 12, Math.sin(cam.facing) * 12);
-  ctx.lineWidth = 3;
-  ctx.strokeStyle = disabled ? '#5a6a78' : '#ff8a8a';
-  ctx.stroke();
+  ctx.arc(Math.cos(cam.facing) * 5, Math.sin(cam.facing) * 5, 4, 0, Math.PI * 2);
+  ctx.fillStyle = disabled ? '#5a6a78' : '#ff2d2d';
+  ctx.fill();
   ctx.restore();
 }
