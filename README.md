@@ -30,7 +30,7 @@ while you are seen and drains while you hide.
 | 1. The Velvet Lobby | 2 | 1 | 60 |
 | 2. The Silent Gallery | 3 | 2 | 120 |
 | 3. The Gold Vault | 3 | 3 | 200 |
-| 4. The Rooftop Escape | 4 | 2 | 260 |
+| 4. The Rooftop Escape | 4 | 2 | 200 |
 
 ## Run it
 
