@@ -519,12 +519,12 @@ if (demoParams.get('demo') === '1' && demoLevel >= 1 && demoLevel <= LEVELS.leng
   // thief stays visible (meter = an earlier grab) so the "Press E" hint shows.
   // pickIndex: locked relic mid-pick (progress arc visible, frozen in demo).
   const demoStages = [
-    // 1 Velvet Lobby — sneak at the cone edge, gold off the desk, alarm 55.
-    { x: 418, y: 348, facing: Math.PI, alarm: 70, lootValue: 25, coins: 25, timeLeft: 200, taken: [] },
+    // 1 Velvet Lobby — smoke + cone edge, gold off the desk, alarm ~68 at capture.
+    { x: 418, y: 348, facing: Math.PI, alarm: 85, lootValue: 25, coins: 25, timeLeft: 200, taken: [], smoke: true },
     // 2 Silent Gallery — smoke cloud, thief inside it, alarm 40.
     { x: 348, y: 560, facing: Math.PI, alarm: 55, lootValue: 25, coins: 10, timeLeft: 160, taken: [], smoke: true },
-    // 3 Gold Vault — hold-E picking a relic, EMP has the cameras off, alarm 70.
-    { x: 680, y: 302, facing: Math.PI / 2, alarm: 85, lootValue: 75, coins: 55, timeLeft: 120, taken: [0, 1], pickIndex: 3, emp: true },
+    // 3 Gold Vault — hold-E picking a relic, thief offset so the star reads clear, EMP off, alarm 70.
+    { x: 711, y: 318, facing: 2.77, alarm: 85, lootValue: 75, coins: 55, timeLeft: 120, taken: [0, 1], pickIndex: 3, emp: true },
     // 4 Rooftop Escape — at the helipad's edge, quota met (exit pulses), alarm 20.
     // (NOT on the pad itself: standing on it with the quota met wins instantly.)
     { x: 690, y: 155, facing: 0, alarm: 35, lootValue: 205, coins: 205, timeLeft: 90, taken: [1, 2, 3, 4] },

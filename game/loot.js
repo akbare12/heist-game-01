@@ -51,8 +51,8 @@ export function drawLoot(ctx, item, time) {
   ctx.translate(item.x, item.y + bob);
   // Gold glow ring so loot reads at a glance, even at small scale.
   ctx.beginPath();
-  ctx.arc(0, 0, item.radius + 7, 0, Math.PI * 2);
-  ctx.fillStyle = 'rgba(245, 197, 66, 0.30)';
+  ctx.arc(0, 0, item.radius + 9, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(245, 197, 66, 0.38)';
   ctx.fill();
   // The loot itself: coin circle, gold bar, gem diamond, relic star.
   ctx.fillStyle = item.color;

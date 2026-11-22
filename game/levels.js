@@ -36,7 +36,7 @@ export const LEVELS = [
     props: [
       { kind: 'rect', x: 520, y: 150, w: 40, h: 490, color: 'rgba(107, 85, 24, 0.30)' }, // gold carpet runner
       { kind: 'circle', x: 700, y: 600, r: 10, color: '#3f7a4e' }, // potted plant
-      { kind: 'label', x: 390, y: 320, text: 'RECEPTION', color: '#f5c542' },
+      { kind: 'label', x: 390, y: 278, text: 'RECEPTION', color: '#f5c542' },
       { kind: 'label', x: 120, y: 160, text: 'LOUNGE', color: '#8fa3b5' },
     ],
     start: { x: 60, y: 600 },
