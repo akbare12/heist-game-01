@@ -433,3 +433,21 @@ window.__vault = {
 
 loadLevel(0);
 requestAnimationFrame(frame);
+
+// Demo hook (?level=N&demo=1): jump straight into a room for screenshots.
+// Mid-room showcase spot per level, alarm preset so the meter reads.
+const demoParams = new URLSearchParams(location.search);
+const demoLevel = Number(demoParams.get('level') || 0);
+if (demoParams.get('demo') === '1' && demoLevel >= 1 && demoLevel <= LEVELS.length) {
+  const demoSpots = [
+    { x: 420, y: 380 }, // Velvet Lobby — by the gold loot
+    { x: 450, y: 320 }, // Silent Gallery — between the partitions
+    { x: 400, y: 320 }, // Gold Vault — at the vault door gap
+    { x: 420, y: 380 }, // Rooftop Escape — by the coin loot
+  ];
+  loadLevel(demoLevel - 1);
+  state = 'playing';
+  player.x = demoSpots[demoLevel - 1].x;
+  player.y = demoSpots[demoLevel - 1].y;
+  alarm = 45;
+}

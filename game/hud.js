@@ -30,7 +30,7 @@ export function drawTopBar(ctx, state) {
   ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
   ctx.fillStyle = '#f5c542';
-  ctx.fillText(`MIDNIGHT VAULT — ${level.name}`, 16, 24);
+  ctx.fillText(level.name, 16, 24);
   ctx.font = '12px monospace';
   ctx.fillStyle = '#8fa3b5';
   ctx.fillText(level.briefing, 16, 46);
