@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MIDNIGHT VAULT — Best Heist Game</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #05080c;
+    color: #e8eef5;
+    font-family: monospace, ui-monospace, monospace;
+    height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #wrap {
+    width: min(1080px, 100vw);
+  }
+  canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #0a0f14;
+    cursor: crosshair;
+  }
+  #foot {
+    padding: 8px 4px;
+    font-size: 12px;
+    color: #8fa3b5;
+    text-align: center;
+  }
+  #foot b { color: #f5c542; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="1080" height="680"></canvas>
+  <div id="foot"><b>MIDNIGHT VAULT</b> — WASD/arrows move &middot; Shift sneak &middot; E grab loot &middot; 1 smoke &middot; 2 EMP &middot; 3 lockpick &middot; R restart room &middot; reach the green exit with the quota</div>
+</div>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
